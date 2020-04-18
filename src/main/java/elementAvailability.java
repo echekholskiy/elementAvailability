@@ -15,15 +15,16 @@ public class elementAvailability {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://plavnik.by/");
-        WebElement el1=driver.findElement(By.xpath("//div[@class='title with-child']/a[@href='https://plavnik.by/katushki/']"));
-        Actions actions=new Actions(driver);
-        actions.moveToElement(el1).build().perform();
-        driver.findElement(By.xpath("//li[@class='glavli']/a[@href=\"https://plavnik.by/katushki/bezinercionnie/\"]")).click();
-        WebElement el2=driver.findElement(By.xpath("//label[@id='v-m55']/input"));
-        System.out.println(el2.isSelected());
-        driver.findElement(By.xpath("//label[@id='v-m55']")).click();
-        WebElement el3=driver.findElement(By.xpath("//label[@id='v-m55']/input"));
-        System.out.println(el3.isSelected());
+        WebElement el2=driver.findElement(By.xpath("//li[@class='glavli']/a[@href='https://plavnik.by/katushki/bezinercionnie/']"));
+        System.out.println(el2.isDisplayed());
+        if(el2.isDisplayed()){
+            el2.click();
+        }
+        else{
+            driver.findElement(By.xpath("//div[@class='title with-child']/a[@href=\"https://plavnik.by/katushki/\"]")).click();
+        }
+
+
 
     }
 }
